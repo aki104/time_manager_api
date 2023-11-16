@@ -13,7 +13,7 @@ class ErrorResponse(
                     message = e.errorMessage,
                     statusCode = HttpStatus.BAD_REQUEST.value().toString()
                 ),
-                HttpStatus.FORBIDDEN
+                HttpStatus.BAD_REQUEST
             )
         }
     }

@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("user/state")
+@RequestMapping("user")
 class UserAccountController(private val service: UserAccountService) {
     @PostMapping("/login")
     fun login(@RequestBody request: LoginRequest): LoginResponse {
         print("request :${request}")
         service.userCheck(request)
-       return  LoginResponse("ログイン成功")
+       return  LoginResponse("1", authToken = "abcdefg")
     }
 
 //    @PostMapping("/logout")

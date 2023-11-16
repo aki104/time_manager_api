@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 //レスポンス
 data class LoginResponse(
-    val message: String
+    @JsonProperty("user_id")
+    val userId: String,
+    @JsonProperty("auth_token")
+    val authToken: String
 )
 
 data class LogoutResponse(
@@ -21,13 +24,13 @@ data class WithdrawalResponse(
 
 
 //リクエスト
-
 data class LoginRequest(
-    @JsonProperty("company_id")
-    val companyId: Int,
-    @JsonProperty("employee_id")
-    val employeeId: Int,
+    @JsonProperty("company_code")
+    val companyCode: String,
+    @JsonProperty("employee_code")
+    val employeeCode: String?,
     val password: String,
+    val email: String?
 )
 
 data class SignUpRequest(

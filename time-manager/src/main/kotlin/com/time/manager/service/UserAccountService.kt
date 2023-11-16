@@ -9,10 +9,16 @@ import org.springframework.stereotype.Service
 class UserAccountService {
     fun userCheck(request: LoginRequest) {
         val password = StubUser().password
-        val companyId = StubUser().companyId
-        val employeeId = StubUser().employeeId
+        val companyCode = StubUser().companyCode
+        val mailOrEmployee : String? = if (request.employeeCode != null) {
+            StubUser().employeeCode
+        } else {
+            StubUser().email
+        }
+        val requestEmailOrEmployee: String? = request.employeeCode ?: request.email
 
-        if (request.password == password && request.companyId == companyId && request.employeeId == employeeId) {
+        //今は一旦スタブと比較して判定
+        if (request.password == password && request.companyCode == companyCode && requestEmailOrEmployee == mailOrEmployee) {
             print("成功")
         } else {
             throw NotExistException(errorMessage = "ユーザーが存在しません")
