@@ -27,13 +27,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 //        return handleExceptionInternal(ex, res, headers, status, request)
 //    }
 //}
-//
-//// エラーレスポンス用のクラス
-//class ResponseError(
-//    val status: Int,
-//    val message: String?
-//
-//)
 
 @RestControllerAdvice
 class RequestExceptionHandler {

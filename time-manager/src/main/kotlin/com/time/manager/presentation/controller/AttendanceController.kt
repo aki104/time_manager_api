@@ -18,7 +18,6 @@ class AttendanceController {
     fun saveAttendance(@RequestBody request: AttendanceSaveRequest): AttendanceSaveResponse {
         print("request :${request}")
         return try {
-            print("????")
             if (request.attendanceStatus == 1) {
                 //startTimeの登録
                 print(request.pushTime)
@@ -26,7 +25,7 @@ class AttendanceController {
                 //endTimeの登録
                 print(request.pushTime)
             }
-            AttendanceSaveResponse(request.authToken)
+            AttendanceSaveResponse(request.pushTime)
         } catch (e: Exception){
             print(e.message)
             AttendanceSaveResponse(e.message.toString())
