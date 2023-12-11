@@ -2,6 +2,7 @@ package com.time.manager.presentation.controller
 
 import com.time.manager.presentation.form.*
 import com.time.manager.service.UserAccountService
+import com.time.manager.util.getRandomString
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -13,8 +14,8 @@ class UserAccountController(private val service: UserAccountService) {
     @PostMapping("/login")
     fun login(@RequestBody request: LoginRequest): LoginResponse {
         print("request :${request}")
-        service.userCheck(request)
-       return  LoginResponse("1", authToken = "abcdefg")
+        val user = service.userCheck(request)
+       return  LoginResponse(user!!.id.toString(), authToken = getRandomString())
     }
 
 //    @PostMapping("/logout")

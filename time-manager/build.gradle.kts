@@ -22,10 +22,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-//	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	runtimeOnly("mysql:mysql-connector-java:8.0.33")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-//	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.2")
 }
+
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
